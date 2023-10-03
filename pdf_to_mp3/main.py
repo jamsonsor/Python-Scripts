@@ -1,11 +1,12 @@
 import pyttsx3
-from PyPDF2 import PdfFileReader
+import objc
+from pypdf import PdfReader
 
-pdfreader = PdfFileReader.PdfFileReader(open('flask-intro.pdf', 'rb'))
+pdfreader = PdfReader("flask-intro.pdf")
 speaker = pyttsx3.init()
 
-for page_num in range(pdfreader.numPages):
-  text = pdfreader.getPage(page_num).extract_text()
+for page_num in range(len(pdfreader.pages)):
+  text = pdfreader.pages[page_num].extract_text()
   clean_text = text.strip().replace('\n', '')
   print(clean_text)
 
