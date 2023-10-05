@@ -11,7 +11,7 @@ while True:
 
   if city.lower() == 'q':
     break   # Exit the loop if the user enters 'q'
-  
+
   response = requests.get(
     url=api_url,
     params={
@@ -24,5 +24,8 @@ while True:
   if response.status_code == 200:
     weather_data = response.json()
     print(city, "temperature is", weather_data['main']['temp'], "degrees celcius.")
+  elif response.status_code == 401:
+    print("Invalid API key detected, exiting the script.")
+    break
   else:
     print("City not found. Please check the spelling and try again.")
