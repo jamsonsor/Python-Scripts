@@ -1,17 +1,28 @@
 import requests
-api_key = "ec38bdcf42e72eb825f79a1790c428ee" #${{ secrets.WEATHER_API_KEY }}
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+api_key=os.environ.get("WEATHER_API_KEY")
 api_url = "https://api.openweathermap.org/data/2.5/weather"
 
-city = input("Write your city:")
+while True:
+  city = input("Write your city:")
 
-response = requests.get(
-  url=api_url,
-  params={
-    "q": city,
-    "appid": api_key,
-    "units": "metric",
-  }
-)
+  if city.lower() == 'q':
+    break   # Exit the loop if the user enters 'q'
+  
+  response = requests.get(
+    url=api_url,
+    params={
+      "q": city,
+      "appid": api_key,
+      "units": "metric",
+    }
+  )
 
-weather_data = response.json()
-print(city, "temperature is", weather_data['main']['temp'], "degrees celcius.")
+  if response.status_code == 200:
+    weather_data = response.json()
+    print(city, "temperature is", weather_data['main']['temp'], "degrees celcius.")
+  else:
+    print("City not found. Please check the spelling and try again.")
