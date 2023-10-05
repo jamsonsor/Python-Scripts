@@ -1,4 +1,3 @@
-import objc
 from pypdf import PdfReader
 from gtts import gTTS
 
