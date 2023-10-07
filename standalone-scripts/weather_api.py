@@ -7,7 +7,7 @@ api_key=os.environ.get("WEATHER_API_KEY")
 api_url = "https://api.openweathermap.org/data/2.5/weather"
 
 while True:
-  city = input("Write your city:")
+  city = input("Enter your city:")
 
   if city.lower() == 'q':
     break   # Exit the loop if the user enters 'q'
