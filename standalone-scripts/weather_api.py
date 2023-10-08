@@ -17,7 +17,7 @@ while True:
     params={
       "q": city,
       "appid": api_key,
-      "units": "metric",
+      "units": "imperial",
     }
   )
 
