@@ -22,17 +22,10 @@ def chat_with_gpt(prompt, language="en"):
   return response.choices[0].message.content.strip()
 
 def translate_to_english(text):
-  # Use an API or library to translate text from Spanish to English
-  # You can use Google Translate API, DeepL, or other translation services
-  # For this example, we'll use Google Translate as an external service (not shown in the code)
   translated_text = translate_to_english_using_external_service(text)
   return translated_text
 
 def translate_to_english_using_external_service(text):
-    # Implement your translation logic here using an external service
-    # This function should translate text from Spanish to English
-    # You may need to use a library or send a request to a translation API
-    # Replace this with your actual code to perform the translation
     return "This is a sample translation to English."
 
 if __name__ == "__main__":
