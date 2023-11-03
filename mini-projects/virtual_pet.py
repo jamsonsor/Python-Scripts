@@ -17,6 +17,24 @@ class Pet:
 
   def status(self):
     print(f"{self.name}'s current hunger level: {self.hunger}")
-    print("f{self.name}'s current happiness level: {self.happiness}")
+    print(f"{self.name}'s current happiness level: {self.happiness}")
 
 pet = Pet("Lulu")
+
+while True:
+  user_choice = input("> ")
+  
+  if user_choice == "feed":
+    pet.feed()
+  elif user_choice == "play":
+    pet.play()
+  elif user_choice == "status":
+    pet.status()
+  elif user_choice == "exit":
+    break
+
+
+  time.sleep(1)
+  pet.hunger += 1
+
+print("Goodbye!")
