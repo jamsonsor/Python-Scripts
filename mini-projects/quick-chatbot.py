@@ -17,6 +17,8 @@ def chat_with_gpt(prompt):
   conversation_history.append({"role": "assistant", "content": response.choices[0].message.content})
   return response.choices[0].message.content.strip()
 
+# Add code to translate English to Spanish here
+
 if __name__ == "__main__":
   while True:
     user_input = input("You: ")
